@@ -1,0 +1,119 @@
+.main {
+  display: flex;
+}
+
+.leftContainer {
+  width: 50%;
+  height: 100vh;
+  background-color: #17a2b8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Add position relative to the container */
+}
+
+.round {
+  width: 230px;
+  height: 230px;
+  border-radius: 100%;
+  background-color: #317f8b;
+  z-index: 0;
+  position: relative;
+  margin-bottom: 80px;
+  margin-left: 15px;
+}
+
+.img {
+  width: 380px;
+  height: 380px;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rightContainer {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin-top: 30px;
+}
+
+.input {
+  width: 300px;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.inputBox {
+  height: 35px;
+  width: 230px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #797979;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.login {
+  width: 300px;
+  height: 35px;
+  border: 0px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5px;
+  background-color: #17a2b8;
+  cursor: pointer;
+  color: white;
+}
+
+.p {
+  text-align: center;
+  font-size: 13px;
+  color: #797979;
+}
+
+.register {
+  width: 300px;
+  height: 35px;
+  border: 1px solid #17a2b8;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  margin-top: 10px;
+  color: #17a2b8;
+}
