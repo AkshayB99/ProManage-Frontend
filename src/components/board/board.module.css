@@ -1,0 +1,88 @@
+.mainContainer {
+  height: 100vh;
+}
+
+.heading {
+  height: 20%;
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+.heading div {
+  display: flex;
+}
+
+.heading h3 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  width: 50%;
+}
+
+.heading h4 {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  width: 50%;
+  font-size: 20px;
+  padding-right: 30px;
+  padding-top: 5px;
+  color: #707070;
+}
+.heading div:last-child {
+  padding-top: 20px;
+}
+
+.secDiv h2 {
+  width: 87%;
+}
+.dropdown {
+  position: relative;
+  font-size: 15px;
+}
+
+.dropdownToggle {
+  cursor: pointer;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 4px 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.dropdownItem {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: #f0f0f0;
+}
+
+.body {
+  width: 100%;
+  min-height: 80%;
+  display: flex;
+  overflow-y: auto;
+}
+
+.body::-webkit-scrollbar {
+  width: 12px;
+}
+
+.body::-webkit-scrollbar-thumb {
+  background: #9CB7C5; 
+  border-radius: 10px;
+}
+
+.bodyDiv{
+  display: flex;
+  margin-bottom: 5px;
+}

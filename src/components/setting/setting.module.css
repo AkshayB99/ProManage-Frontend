@@ -1,0 +1,52 @@
+.mainContainer {
+  height: 100vh;
+}
+
+.mainContainer h3 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-left: 40px;
+  padding-top: 40px;
+}
+
+.subContainer{
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+.input {
+  width: 300px;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.inputBox {
+  height: 35px;
+  width: 230px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #797979;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.btn{
+    width: 300px;
+  height: 35px;
+  border: 0px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5px;
+  background-color: #17a2b8;
+  cursor: pointer;
+  color: white;
+}

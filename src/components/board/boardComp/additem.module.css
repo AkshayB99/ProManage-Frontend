@@ -1,0 +1,314 @@
+.mainContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-size: 16px;
+}
+
+.popup {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 35px;
+}
+
+.title {
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.title div {
+  display: flex;
+  flex-direction: column;
+}
+
+.title div label {
+  margin-right: 10px;
+}
+
+.title div label span {
+  color: red;
+}
+
+.title div input {
+  width: 600px;
+  height: 40px;
+  font-size: 16px;
+  margin: 6px 0 0 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding-left: 5px;
+}
+
+.priority {
+  display: flex;
+  padding-bottom: 40px;
+}
+
+.priority p span {
+  color: red;
+}
+
+.high {
+  width: 140px;
+  height: 30px;
+  border: 2px solid #e2e2e2;
+  margin: 0 10px 0 20px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.high span {
+  width: 10px;
+  height: 10px;
+  background-color: #ff2473;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.high:hover {
+  background-color: #eeecec; /* Change background color on click */
+}
+
+.medium {
+  width: 180px;
+  height: 30px;
+  border: 2px solid #e2e2e2;
+  margin: 0 10px 0 5px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.medium span {
+  width: 10px;
+  height: 10px;
+  background-color: #18b0ff;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.medium:hover {
+  background-color: #eeecec; /* Change background color on click */
+}
+
+.low {
+  width: 140px;
+  height: 30px;
+  border: 2px solid #e2e2e2;
+  margin: 0 10px 0 5px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.low span {
+  width: 10px;
+  height: 10px;
+  background-color: #63c05b;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.low:hover {
+  background-color: #eeecec; /* Change background color on click */
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 80px;
+}
+
+.checklist label {
+  margin-bottom: 10px;
+}
+
+.checklistBox {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.checklistBox::-webkit-scrollbar {
+  width: 14px;
+}
+
+.checklistBox::-webkit-scrollbar-track {
+  background: #d6eaf4;
+}
+
+.checklistBox::-webkit-scrollbar-thumb {
+  background-color: rgba(141, 170, 185, 0.8);
+  border-radius: 10px;
+  width: 12px;
+}
+
+.input {
+  width: 600px;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.input span {
+  cursor: pointer;
+  color: red;
+  margin-right: 10px;
+}
+
+.inputBox {
+  height: 35px;
+  width: 550px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #797979;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border: 2px solid #e2e2e2;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  border: 2px solid #32d1ea;
+  background-color: #32d1ea;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 10px;
+  border: 1px solid white;
+  border-width: 0 3px 3px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked::before {
+  opacity: 1;
+}
+
+.checklist p {
+  width: 100px;
+  cursor: pointer;
+}
+
+.buttons{
+  display: flex;
+}
+
+.datePickerContainer{
+  width: 40%;
+}
+
+.calendarContainer {
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #E2E2E2;
+  outline: none;
+}
+
+.calendarContainer {
+  width: 150px;
+  text-align: center;
+}
+
+.react-datepicker__input-container {
+  width: 100%;
+}
+
+.react-datepicker__input-container input::placeholder {
+  color: #aaa;
+}
+
+.react-datepicker__input-container input {
+  text-align: center;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  color: #333;
+  caret-color: transparent; /* Hide the cursor */
+  pointer-events: none; /* Disable pointer events */
+}
+
+.SaveCancle{
+  width: 60%;
+  display: flex;
+  /* background-color: #63c05b; */
+  justify-content:space-around;
+  
+}
+
+.canclebtn{
+  width: 165px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 15px;
+  border: 2px solid red;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.saveBtn{
+  width: 165px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #17A2B8;
+  border-radius: 15px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 1px;
+}

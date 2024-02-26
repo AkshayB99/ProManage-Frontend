@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import logcss from "./login.module.css";
 import Art from "../../assets/Art.png";
-import URL from "../../services/url";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 
@@ -18,7 +17,7 @@ function login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${URL}api/v1/user/login`, {
+      const response = await fetch(`${import.meta.env.VITE_URL}api/v1/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +27,12 @@ function login() {
       const data = await response.json();
       cookies.set("token", data.token);
       cookies.set("data", data);
-      navigate("/");
+      if (data.error && data.error.status) {
+        alert(data.message);
+      }
+      if (data.token) {
+        navigate("/");
+      }
     } catch (err) {
       console.log("Sign Up: ", err);
     }
@@ -61,9 +65,7 @@ function login() {
                   type="text"
                   placeholder="Email"
                   className={logcss.inputBox}
-                  onChange={(e) =>
-                    setUser({ ...user, email: e.target.value })
-                  }
+                  onChange={(e) => setUser({ ...user, email: e.target.value })}
                 />
               </div>
               <div className={logcss.input}>

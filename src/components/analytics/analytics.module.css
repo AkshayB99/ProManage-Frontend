@@ -1,0 +1,90 @@
+.mainContainer {
+  height: 100vh;
+  background-color: #F5F5F5;
+}
+
+.heading{
+  width: 200px;
+  height: 50px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px ;
+}
+
+.subContainer{
+  display: flex;
+  margin: 35px;
+}
+
+.leftContainer{
+  width: 475px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.leftContainer div{
+  display: flex;
+  padding: 15px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.leftContainer div span{
+  width: 15px;
+  height: 15px;
+  background-color: #90C4CC;
+  border-radius: 100%;
+  margin-right: 10px;
+  margin-left: 14px;
+}
+
+.leftContainer div p{
+  width: 80%;
+}
+
+.leftContainer div:first-child{
+  margin-top: 22px;
+}
+
+.leftContainer div:last-child{
+  margin-bottom: 18px;
+}
+
+.rightContainer{
+  width: 475px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+.rightContainer div{
+  display: flex;
+  padding: 15px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.rightContainer div span{
+  width: 15px;
+  height: 15px;
+  background-color: #90C4CC;
+  border-radius: 100%;
+  margin-right: 10px;
+  margin-left: 14px;
+}
+
+.rightContainer div p{
+  width: 80%;
+}
+
+.rightContainer div:first-child{
+  margin-top: 22px;
+}
+
+.rightContainer div:last-child{
+  margin-bottom: 18px;
+}

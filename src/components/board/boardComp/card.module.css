@@ -1,0 +1,180 @@
+.mainContainer {
+  width: 270px;
+  /* height: 200px; */
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-right: 40px;
+  margin-left: 40px;
+  overflow: hidden; 
+  position: relative;
+}
+
+.priorityNbtn {
+  display: flex;
+}
+
+.priorityNbtn span{
+  margin-top: 4px;
+}
+
+.priority{
+  width: 80%;
+  height: 30px;
+  /* margin: 0 10px 0 20px; */
+  border-radius: 4px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.priority span {
+  width: 7px;
+  height: 7px;
+  border-radius: 100%;
+  margin: 10px;
+}
+
+.heading {
+  width: 100%;
+  padding: 12px 5px 10px 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.checklistBtn{
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.checklistBtn label{
+  /* background-color: aqua; */
+  padding-right: 100px;
+  margin-left: 10px;
+}
+
+.checklistBtn span{
+  width: 24px;
+  height: 24px;
+  background-color: #EEECEC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checklistSubCont{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checklistBox{
+  width: 88%;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  /* margin-left: 10px; */
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border: 2px solid #e2e2e2;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  border: 2px solid #32d1ea;
+  background-color: #32d1ea;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 10px;
+  border: 1px solid white;
+  border-width: 0 3px 3px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked::before {
+  opacity: 1;
+}
+
+.checklistBox p{
+  padding-left: 10px;
+}
+
+.btns{
+  display: flex;
+}
+
+.dateBtn{
+  width: 50px;
+  height: 20px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 20px 26px 15px 20px;
+  color: #fff;
+}
+
+.priorityBtns {
+  display: flex;
+}
+
+.priorityBtns p{
+  background-color: #EEECEC;
+  width: 50px;
+  height: 20px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 20px 0 15px 4px;
+  cursor: pointer;
+}
+
+.options {
+  position:absolute;
+  width: 140px;
+  transform: translate(55%, -165%);
+  background-color: rgb(255, 255, 255);
+  padding: 7px 40px 7px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+}
+
+.options p {
+  margin: 5px 0;
+  cursor: pointer;
+}
+

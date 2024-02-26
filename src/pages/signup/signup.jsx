@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import regcss from "./signup.module.css";
 import Art from "../../assets/Art.png";
-import URL from "../../services/url";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 
@@ -21,7 +20,7 @@ function signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${URL}api/v1/user/signup`, {
+      const response = await fetch(`${import.meta.env.VITE_URL}api/v1/user/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
