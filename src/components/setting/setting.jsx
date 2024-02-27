@@ -51,18 +51,17 @@ function setting() {
         const data = await response.json();
         if (data.status === "success") {
           alert("Password updated successfully");
-          cookies.set("token", data.token, { path: "/" }); // Update the token in the cookies
-          cookies.set("data", data, { path: "/" }); // Update the user in the cookies
-          setUser({ passwordCurrent: "", password: "", passwordConfirm: "" }); // Reset password fields after update
+          cookies.set("token", data.token, { path: "/" }); 
+          cookies.set("data", data, { path: "/" }); 
+          setUser({ passwordCurrent: "", password: "", passwordConfirm: "" }); 
         }
       }
     };
 
     if (updatebtn) {
-      // Only attempt updates if the update button was clicked
       updateName();
       updatePassword();
-      setUpdateBtn(false); // Reset the update button state
+      setUpdateBtn(false); 
     }
   }, [updatebtn, userName, user]);
 

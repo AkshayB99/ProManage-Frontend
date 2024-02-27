@@ -1,0 +1,150 @@
+.maincontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.leftHeader {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transform: translate(-40%, -480%);
+}
+
+.leftHeader h3 {
+  font-size: large;
+  font-weight: 800;
+  margin-left: 10px;
+  letter-spacing: 1px;
+}
+
+.container {
+  width: 600px;
+  padding: 20px 20px 20px 30px;
+  border: 2px solid #edf5fe;
+  border-radius: 10px;
+}
+
+.priority {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.priority_icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  margin: 10px;
+}
+
+.heading {
+  margin: 10px 0 10px 0px;
+}
+
+.checklist {
+  margin: 20px 0 0 0;
+}
+
+.checklist label {
+  font-size: 16px;
+}
+
+.checklistSubCont {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.checklistSubCont::-webkit-scrollbar {
+  width: 14px;
+}
+
+.checklistSubCont::-webkit-scrollbar-track {
+  background: #d6eaf4;
+  border-radius: 5px;
+}
+
+.checklistSubCont::-webkit-scrollbar-thumb {
+  background-color: rgba(141, 170, 185, 0.8);
+  border-radius: 10px;
+  width: 12px;
+}
+
+.checklistBox {
+  width: 99%;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border: 2px solid #e2e2e2;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  border: 2px solid #32d1ea;
+  background-color: #32d1ea;
+}
+
+.checklistBox p {
+  padding: 5px 0 5px 10px;
+}
+
+.dueDate {
+  margin: 20px 0 0 0;
+  display: flex;
+  align-items: center;
+}
+
+.dueDate label {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.dateBtn {
+  width: 70px;
+  height: 30px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 20px 26px 15px 10px;
+  color: #fff;
+}
+
+@media (max-width: 500px) {
+    .leftHeader{
+        transform: translate(-30%, -650%);
+    }
+  .container {
+    width: 380px;
+    margin: 0 12px 0 12px;
+    padding: 15px;
+  }
+  .checklistSubCont {
+    height: 400px;
+  }
+}

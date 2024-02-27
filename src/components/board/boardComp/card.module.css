@@ -21,10 +21,8 @@
 .priority{
   width: 80%;
   height: 30px;
-  /* margin: 0 10px 0 20px; */
   border-radius: 4px;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   font-size: 12px;
   cursor: pointer;
@@ -54,7 +52,6 @@
   margin-bottom: 12px;
 }
 .checklistBtn label{
-  /* background-color: aqua; */
   padding-right: 100px;
   margin-left: 10px;
 }
@@ -82,7 +79,6 @@
   border: 2px solid #ccc;
   border-radius: 8px;
   margin-bottom: 5px;
-  /* margin-left: 10px; */
   display: flex;
   align-items: center;
   padding-left: 5px;

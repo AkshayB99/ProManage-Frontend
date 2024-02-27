@@ -12,7 +12,6 @@ const cookies = new Cookies();
 function Home() {
   const navigate = useNavigate();
   const authToken = cookies.get("token");
-  // const data = cookies.get("data");
   const [selected, setSelected] = useState("board");
   const [logoutOpt, setLogoutOpt] = useState(false);
 

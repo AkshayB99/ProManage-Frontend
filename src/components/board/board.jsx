@@ -9,7 +9,7 @@ function Board() {
   const [data, setData] = useState(cookies.get("data"));
   const authToken = cookies.get("token");
   const loginData = cookies.get("data");
-  const [selectedPeriod, setSelectedPeriod] = useState("today");
+  const [selectedPeriod, setSelectedPeriod] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [rendering, setRendering] = useState(false);
   const [cardData, setCardData] = useState([]);
@@ -38,7 +38,6 @@ function Board() {
     setRendering(!rendering);
   };
 
-  // changes
   useEffect(() => {
     async function getCard() {
       try {
@@ -62,32 +61,34 @@ function Board() {
       }
     }
     getCard();
-  }, [showAddItem, rendering]);
+  }, [rendering]);
 
   useEffect(() => {
-    async function getCard() {
-      try {
-        const res = await fetch(
-          `${import.meta.env.VITE_URL}api/v1/card/${
-            loginData.data.user._id
-          }/period?period=${selectedPeriod}`,
-          {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${authToken}`,
-            },
+    if (selectedPeriod !== "") {
+      async function getCard() {
+        try {
+          const res = await fetch(
+            `${import.meta.env.VITE_URL}api/v1/card/${
+              loginData.data.user._id
+            }/period?period=${selectedPeriod}`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${authToken}`,
+              },
+            }
+          );
+          const data = await res.json();
+          if (data.status === "success") {
+            setCardData(data?.data?.items);
           }
-        );
-        const data = await res.json();
-        if (data.status === "success") {
-          setCardData(data?.data?.items);
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
       }
+      getCard();
     }
-    getCard()
-  }, [selectedPeriod]);
+  }, [selectedPeriod, rendering]);
 
   return (
     <div className={boardCss.mainContainer}>
@@ -100,7 +101,7 @@ function Board() {
           <h2>Board</h2>
           <div className={boardCss.dropdown}>
             <div className={boardCss.dropdownToggle} onClick={toggleDropdown}>
-              {selectedPeriod}
+              {selectedPeriod === "" ? "today" : selectedPeriod}
             </div>
             {dropdownOpen && (
               <div className={boardCss.dropdownMenu}>

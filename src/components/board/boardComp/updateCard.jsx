@@ -71,8 +71,6 @@ function updateCard({ data, setShowEdit, handleMainCardReload }) {
     }
   }, []);
 
-  console.log(sendInput);
-
   const handleSave = async (e) => {
     e.preventDefault();
     try {
@@ -114,8 +112,8 @@ function updateCard({ data, setShowEdit, handleMainCardReload }) {
             <input
               type="text"
               name="title"
-              value={title} // Bind to the title state variable
-              onChange={(e) => setTitle(e.target.value)} // Update the title state variable
+              value={title} 
+              onChange={(e) => setTitle(e.target.value)} 
             />
           </div>
         </div>
@@ -169,7 +167,7 @@ function updateCard({ data, setShowEdit, handleMainCardReload }) {
                     setInputs((prevInputs) =>
                       prevInputs.map((prevInput) => {
                         if (prevInput.key === input.key) {
-                          return { ...prevInput, checked: !prevInput.checked }; // Toggle checked property
+                          return { ...prevInput, checked: !prevInput.checked }; 
                         }
                         return prevInput;
                       })
@@ -179,12 +177,12 @@ function updateCard({ data, setShowEdit, handleMainCardReload }) {
                 <input
                   type="text"
                   name={input.item}
-                  value={input.item} // Bind to the item property
+                  value={input.item} 
                   onChange={(e) => {
                     setInputs((prevInputs) =>
                       prevInputs.map((prevInput) => {
                         if (prevInput.key === input.key) {
-                          return { ...prevInput, item: e.target.value }; // Update the item property
+                          return { ...prevInput, item: e.target.value }; 
                         }
                         return prevInput;
                       })
@@ -201,7 +199,7 @@ function updateCard({ data, setShowEdit, handleMainCardReload }) {
                       (prevInputs) =>
                         prevInputs.filter(
                           (prevInput) => prevInput.key !== input.key
-                        ) // Filter out item with matching key
+                        ) 
                     );
                   }}
                 >
@@ -218,7 +216,6 @@ function updateCard({ data, setShowEdit, handleMainCardReload }) {
               selected={selectedDate}
               onChange={handleDateChange}
               className={upCss.calendarContainer}
-              //   value={changedDate}
               placeholderText={selectedDate ? null : "Select Due Date"}
             />
           </div>

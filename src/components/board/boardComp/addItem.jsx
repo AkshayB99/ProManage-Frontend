@@ -60,7 +60,6 @@ function AddItem({ setShowAddItem, handleMainCardReload }) {
   };
 
   useEffect(() => {
-    // Scroll to the bottom of the checklistBox after adding a new item
     if (checklistBoxRef.current) {
       const { scrollHeight, clientHeight } = checklistBoxRef.current;
       checklistBoxRef.current.scrollTop = scrollHeight - clientHeight;
@@ -71,8 +70,6 @@ function AddItem({ setShowAddItem, handleMainCardReload }) {
     setSelectedDate(date);
   };
 
-
-  // Sending all the data to the server
   const handleSave = async (e) => {
     e.preventDefault();
 

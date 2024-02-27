@@ -64,7 +64,6 @@ function Card({ data, handleMainCardReload, collaps }) {
     return `${monthAbbreviation} ${day}`;
   }
 
-  // Define priority options and their corresponding labels
   const priorityOptions = [
     { value: "backlog", label: "Backlog" },
     { value: "todo", label: "Todo" },
@@ -115,10 +114,19 @@ function Card({ data, handleMainCardReload, collaps }) {
     }
   };
 
-  const handleShare = () => {
-    toast("Link Copied.", {
-      style: { border: "1px solid #48C1B5", backgroundColor: "#F6FFF9" },
-    });
+  const handleShare = async () => {
+    try {
+
+      const shareableLink = `http://localhost:5173/share/${data._id}`;
+
+      await navigator.clipboard.writeText(shareableLink);
+
+      toast("Link Copied.", {
+        style: { border: "1px solid #48C1B5", backgroundColor: "#F6FFF9" },
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const clipTitle = (title, limit) => {
@@ -201,7 +209,7 @@ function Card({ data, handleMainCardReload, collaps }) {
         </div>
         <div className={cardCss.priorityBtns}>
           {priorityOptions
-            .filter((option) => option.value !== data?.card) // Filter out the current priority
+            .filter((option) => option.value !== data?.card) 
             .map((option) => (
               <p
                 key={option.value}

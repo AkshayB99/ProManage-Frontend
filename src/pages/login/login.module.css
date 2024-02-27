@@ -18,7 +18,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative; /* Add position relative to the container */
+  position: relative; 
 }
 
 .round {

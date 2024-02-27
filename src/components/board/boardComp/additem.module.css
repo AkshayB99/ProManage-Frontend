@@ -81,7 +81,7 @@
 }
 
 .high:hover {
-  background-color: #eeecec; /* Change background color on click */
+  background-color: #eeecec; 
 }
 
 .medium {
@@ -106,7 +106,7 @@
 }
 
 .medium:hover {
-  background-color: #eeecec; /* Change background color on click */
+  background-color: #eeecec; 
 }
 
 .low {
@@ -131,7 +131,7 @@
 }
 
 .low:hover {
-  background-color: #eeecec; /* Change background color on click */
+  background-color: #eeecec; 
 }
 
 .checklist {
@@ -275,14 +275,13 @@ input[type="checkbox"]:checked::before {
   background: transparent;
   font-size: 16px;
   color: #333;
-  caret-color: transparent; /* Hide the cursor */
-  pointer-events: none; /* Disable pointer events */
+  caret-color: transparent; 
+  pointer-events: none; 
 }
 
 .SaveCancle{
   width: 60%;
   display: flex;
-  /* background-color: #63c05b; */
   justify-content:space-around;
   
 }
