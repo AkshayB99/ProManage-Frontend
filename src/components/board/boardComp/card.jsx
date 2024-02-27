@@ -117,7 +117,7 @@ function Card({ data, handleMainCardReload, collaps }) {
   const handleShare = async () => {
     try {
 
-      const shareableLink = `http://localhost:5173/share/${data._id}`;
+      const shareableLink = `https://pro-manage-aib99.netlify.app/share/${data._id}`;
 
       await navigator.clipboard.writeText(shareableLink);
 

@@ -6,7 +6,7 @@ import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-function signup() {
+function Signup() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
@@ -16,27 +16,71 @@ function signup() {
     password: "",
     passwordConfirm: "",
   });
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    password: "",
+    passwordConfirm: "",
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(`${import.meta.env.VITE_URL}api/v1/user/signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
-      const data = await response.json();
-      cookies.set("token", data.token);
-      cookies.set("data", data);
-      if (data.status === "success") {
-        navigate("/");
-      } else {
-        alert(data.message);
+    let formValid = true;
+    const newErrors = { ...errors };
+
+    if (!user.name) {
+      newErrors.name = "Username is required";
+      formValid = false;
+    } else {
+      newErrors.name = "";
+    }
+
+    if (!user.email) {
+      newErrors.email = "Email is required";
+      formValid = false;
+    } else {
+      newErrors.email = "";
+    }
+
+    if (!user.password) {
+      newErrors.password = "Password is required";
+      formValid = false;
+    } else {
+      newErrors.password = "";
+    }
+
+    if (!user.passwordConfirm) {
+      newErrors.passwordConfirm = "Please confirm your password";
+      formValid = false;
+    } else if (user.password !== user.passwordConfirm) {
+      newErrors.passwordConfirm = "Passwords do not match";
+      formValid = false;
+    } else {
+      newErrors.passwordConfirm = "";
+    }
+
+    if (formValid) {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_URL}api/v1/user/signup`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        });
+        const data = await response.json();
+        cookies.set("token", data.token);
+        cookies.set("data", data);
+        if (data.status === "success") {
+          navigate("/");
+        } else {
+          alert(data.message);
+        }
+      } catch (err) {
+        console.log("Sign Up: ", err);
       }
-    } catch (err) {
-      console.log("Sign Up: ", err);
+    } else {
+      setErrors(newErrors);
     }
   };
 
@@ -70,6 +114,7 @@ function signup() {
                   onChange={(e) => setUser({ ...user, name: e.target.value })}
                 />
               </div>
+                {errors.name && <p className={regcss.error}>{errors.name}</p>}
               <div className={regcss.input}>
                 <span
                   className="material-symbols-outlined"
@@ -84,6 +129,7 @@ function signup() {
                   onChange={(e) => setUser({ ...user, email: e.target.value })}
                 />
               </div>
+                {errors.email && <p className={regcss.error}>{errors.email}</p>}
               <div className={regcss.input}>
                 <span
                   className="material-symbols-outlined"
@@ -107,6 +153,7 @@ function signup() {
                   visibility
                 </span>
               </div>
+                {errors.password && <p className={regcss.error}>{errors.password}</p>}
               <div className={regcss.input}>
                 <span
                   className="material-symbols-outlined"
@@ -116,7 +163,7 @@ function signup() {
                 </span>
                 <input
                   type={showPasswordConfirm ? "text" : "password"}
-                  placeholder="Password"
+                  placeholder="Confirm Password"
                   className={regcss.inputBox}
                   onChange={(e) =>
                     setUser({ ...user, passwordConfirm: e.target.value })
@@ -130,6 +177,7 @@ function signup() {
                   visibility
                 </span>
               </div>
+                {errors.passwordConfirm && <p className={regcss.error}>{errors.passwordConfirm}</p>}
               <button className={regcss.register} onClick={handleSubmit}>
                 Register
               </button>
@@ -148,4 +196,4 @@ function signup() {
   );
 }
 
-export default signup;
+export default Signup;

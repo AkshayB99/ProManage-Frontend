@@ -6,16 +6,21 @@ import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-function login() {
+function Login() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!user.email || !user.password) {
+      setError("Email and password are required.");
+      return;
+    }
     try {
       const response = await fetch(`${import.meta.env.VITE_URL}api/v1/user/login`, {
         method: "POST",
@@ -28,7 +33,7 @@ function login() {
       cookies.set("token", data.token);
       cookies.set("data", data);
       if (data.error && data.error.status) {
-        alert(data.message);
+        setError(data.message);
       }
       if (data.token) {
         navigate("/");
@@ -91,6 +96,7 @@ function login() {
                   visibility
                 </span>
               </div>
+              {error && <p className={logcss.error}>{error}</p>}
               <button className={logcss.login} onClick={handleSubmit}>
                 Log in
               </button>
@@ -109,4 +115,4 @@ function login() {
   );
 }
 
-export default login;
+export default Login;

@@ -117,3 +117,8 @@
   margin-top: 10px;
   color: #17a2b8;
 }
+
+.error{
+  color: red;
+  font-size: 12px;
+}
