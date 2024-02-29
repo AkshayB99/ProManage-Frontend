@@ -116,8 +116,9 @@ function Card({ data, handleMainCardReload, collaps }) {
 
   const handleShare = async () => {
     try {
-
-      const shareableLink = `https://pro-manage-aib99.netlify.app/share/${data._id}`;
+      const shareableLink = `http://localhost:5173/share/${
+        data._id
+      }`;
 
       await navigator.clipboard.writeText(shareableLink);
 
@@ -135,6 +136,15 @@ function Card({ data, handleMainCardReload, collaps }) {
 
   return (
     <div className={cardCss.mainContainer}>
+      {showOptions && (
+        <div className={cardCss.options} ref={optionsRef}>
+          <p onClick={() => setShowEdit(!showEdit)}>Edit</p>
+          <p onClick={handleShare}>Share</p>
+          <p style={{ color: "red" }} onClick={handleDelete}>
+            Delete
+          </p>
+        </div>
+      )}
       <div className={cardCss.priorityNbtn}>
         <div className={cardCss.priority}>
           <span
@@ -146,7 +156,7 @@ function Card({ data, handleMainCardReload, collaps }) {
                 : { backgroundColor: "#63c05b" }
             }
           ></span>
-          {data?.priority}
+          {data?.priority} priority
         </div>
         <span
           className="material-symbols-outlined"
@@ -209,7 +219,7 @@ function Card({ data, handleMainCardReload, collaps }) {
         </div>
         <div className={cardCss.priorityBtns}>
           {priorityOptions
-            .filter((option) => option.value !== data?.card) 
+            .filter((option) => option.value !== data?.card)
             .map((option) => (
               <p
                 key={option.value}
@@ -220,15 +230,7 @@ function Card({ data, handleMainCardReload, collaps }) {
             ))}
         </div>
       </div>
-      {showOptions && (
-        <div className={cardCss.options} ref={optionsRef}>
-          <p onClick={() => setShowEdit(!showEdit)}>Edit</p>
-          <p onClick={handleShare}>Share</p>
-          <p style={{ color: "red" }} onClick={handleDelete}>
-            Delete
-          </p>
-        </div>
-      )}
+      
       {showEdit && (
         <UpdateCard
           data={data}

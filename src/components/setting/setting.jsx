@@ -94,7 +94,7 @@ function setting() {
             </span>
             <input
               type={showOldPassword ? "text" : "password"}
-              placeholder="Password"
+              placeholder="Old Password"
               className={setCss.inputBox}
               value={user.passwordCurrent}
               onChange={(e) =>
@@ -118,7 +118,7 @@ function setting() {
             </span>
             <input
               type={showNewPassword ? "text" : "password"}
-              placeholder="Password"
+              placeholder="New Password"
               className={setCss.inputBox}
               value={user.password}
               onChange={(e) =>
