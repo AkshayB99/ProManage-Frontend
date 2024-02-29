@@ -91,7 +91,6 @@ function updateCard({ data, setShowEdit, handleMainCardReload }) {
         }
       );
       const res = await response.json();
-      console.log(res);
       if (res.status === "success") {
         handleMainCardReload();
         setShowEdit(false);
