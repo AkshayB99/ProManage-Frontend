@@ -129,9 +129,9 @@ function Signup() {
               </div>
               {data.error && (
                 <p className={regcss.error}>
-                  {data.error.errors.password.properties.type === "required"
+                  {data?.error?.errors?.password?.properties?.type === "required"
                     ? data.error.errors.password.message
-                    : data.error.errors.password.properties.type === "minlength"
+                    : data?.error?.errors?.password?.properties?.type === "minlength"
                     ? "Password should be at least 8 characters long."
                     : ""}
                 </p>

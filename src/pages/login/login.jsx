@@ -13,14 +13,10 @@ function Login() {
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
+  const [data, setData] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!user.email || !user.password) {
-      setError("Email and password are required.");
-      return;
-    }
     try {
       const response = await fetch(`${import.meta.env.VITE_URL}api/v1/user/login`, {
         method: "POST",
@@ -32,11 +28,10 @@ function Login() {
       const data = await response.json();
       cookies.set("token", data.token);
       cookies.set("data", data);
-      if (data.error && data.error.status) {
-        setError(data.message);
-      }
-      if (data.token) {
+      if (data.status === "success") {
         navigate("/");
+      } else if (data.status === "fail") {
+        setData(data);
       }
     } catch (err) {
       console.log("Sign Up: ", err);
@@ -96,7 +91,7 @@ function Login() {
                   visibility
                 </span>
               </div>
-              {error && <p className={logcss.error}>{error}</p>}
+              {data && <p className={logcss.error}>{data?.error?.message}</p>}
               <button className={logcss.login} onClick={handleSubmit}>
                 Log in
               </button>
