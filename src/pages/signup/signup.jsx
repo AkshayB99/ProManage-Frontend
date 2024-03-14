@@ -10,13 +10,8 @@ function Signup() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
+  const [data, setdata] = useState([]);
   const [user, setUser] = useState({
-    name: "",
-    email: "",
-    password: "",
-    passwordConfirm: "",
-  });
-  const [errors, setErrors] = useState({
     name: "",
     email: "",
     password: "",
@@ -26,55 +21,25 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let formValid = true;
-    const newErrors = { ...errors };
-
-    if (!user.name) {
-      newErrors.name = "Username is required";
-      formValid = false;
-    } else {
-      newErrors.name = "";
-    }
-
-    if (!user.email) {
-      newErrors.email = "Email is required";
-      formValid = false;
-    } else {
-      newErrors.email = "";
-    }
-
-    if (!user.password) {
-      newErrors.password = "Password is required";
-      formValid = false;
-    } else {
-      newErrors.password = "";
-    }
-
-    if (!user.passwordConfirm) {
-      newErrors.passwordConfirm = "Please confirm your password";
-      formValid = false;
-    } else if (user.password !== user.passwordConfirm) {
-      newErrors.passwordConfirm = "Passwords do not match";
-      formValid = false;
-    } else {
-      newErrors.passwordConfirm = "";
-    }
-
     if (formValid) {
       try {
-        const response = await fetch(`${import.meta.env.VITE_URL}api/v1/user/signup`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(user),
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_URL}api/v1/user/signup`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+          }
+        );
         const data = await response.json();
         cookies.set("token", data.token);
         cookies.set("data", data);
         if (data.status === "success") {
           navigate("/");
-        } else {
-          alert(data.message);
+        } else if (data.status === "error") {
+          setdata(data);
         }
       } catch (err) {
         console.log("Sign Up: ", err);
@@ -114,7 +79,11 @@ function Signup() {
                   onChange={(e) => setUser({ ...user, name: e.target.value })}
                 />
               </div>
-                {errors.name && <p className={regcss.error}>{errors.name}</p>}
+              {data.error && (
+                <p className={regcss.error}>
+                  {data?.error?.errors?.name?.message}
+                </p>
+              )}
               <div className={regcss.input}>
                 <span
                   className="material-symbols-outlined"
@@ -129,7 +98,12 @@ function Signup() {
                   onChange={(e) => setUser({ ...user, email: e.target.value })}
                 />
               </div>
-                {errors.email && <p className={regcss.error}>{errors.email}</p>}
+              {data.error && (
+                <p className={regcss.error}>
+                  {data?.error?.errors?.email?.message}
+                </p>
+              )}
+
               <div className={regcss.input}>
                 <span
                   className="material-symbols-outlined"
@@ -153,7 +127,16 @@ function Signup() {
                   visibility
                 </span>
               </div>
-                {errors.password && <p className={regcss.error}>{errors.password}</p>}
+              {data.error && (
+                <p className={regcss.error}>
+                  {data.error.errors.password.properties.type === "required"
+                    ? data.error.errors.password.message
+                    : data.error.errors.password.properties.type === "minlength"
+                    ? "Password should be at least 8 characters long."
+                    : ""}
+                </p>
+              )}
+
               <div className={regcss.input}>
                 <span
                   className="material-symbols-outlined"
@@ -177,7 +160,11 @@ function Signup() {
                   visibility
                 </span>
               </div>
-                {errors.passwordConfirm && <p className={regcss.error}>{errors.passwordConfirm}</p>}
+              {data.error && (
+                <p className={regcss.error}>
+                  {data?.error?.errors?.passwordConfirm?.message}
+                </p>
+              )}
               <button className={regcss.register} onClick={handleSubmit}>
                 Register
               </button>
