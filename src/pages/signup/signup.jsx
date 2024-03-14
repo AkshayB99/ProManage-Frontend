@@ -49,6 +49,8 @@ function Signup() {
     }
   };
 
+  console.log(data);
+
   return (
     <>
       <div className={regcss.main}>
@@ -164,6 +166,9 @@ function Signup() {
                 <p className={regcss.error}>
                   {data?.error?.errors?.passwordConfirm?.message}
                 </p>
+              )}
+              {data.error && (
+                <p className={regcss.error}>{data?.error}</p>
               )}
               <button className={regcss.register} onClick={handleSubmit}>
                 Register
